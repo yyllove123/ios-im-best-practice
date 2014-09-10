@@ -111,7 +111,58 @@ QoS Value | bit1 | bit2 | Description
 
 #MsgPack
 
+##对比
+网上大多的文章都拿jsonsmart、messagePack、protobuf作比较，结论是如果数据主要包括字符串，则jsonsmart是王者，如果是数据主要是2进制数据，那messagePack是最佳方案。
+
+我自己总结一下对我来说的各自的优缺点：
+
+- jsonsmart是专为java语言的提供的工具，官网只提供了对java的支持，对其它语言支持力度不足。只能用在服务端和Android等以java为编程语言的场景。
+- messagePack确实体现了跨语言的特点，官网基本上支持所有语言，和json非常相像，比较容易理解。
+- protobuf是我用过的，它直接操作对象，这样省去了创建对象的时间，确实比较方便。不过，pb文件每次增添属性都需要重新编译生成对应的类文件比较麻烦，而且生成的类阅读性非常的差，要看懂需要一定的实力。官方只支持C++,JAVA,.Net，其它Objective-C的支持，跟不上官网的速度，上次用的时候，编译出来总是需要我手动更改一下里面的一些东西才能用。
+
+以这三个来看的话，还是MessagePack比较中意。
 
 ##MsgPack介绍
+“msgpack就像是json一样”，确实就像json一样，他就是将json换了一种描述，它将每个基本类型都用一个特殊的字节表示，构造了一种新的json。
+
+他描述的类型有：
+
+空类型：null，nil
+
+bool类型：true 或 false
+
+整型：正整数、负整数、uint8、uint16、uint32、uint64、int8、int16、int32、int64
+
+float类型：float32、float64
+
+str类型：str、str8、str16、str32
+
+bin类型（对象类型）：8字节表示长度、16字节表示长度、32字节表示长度
+
+array类型：2
+
+map类型：
+
+ext类型（扩展类型）：
+
+这样基本可以满足我们的大部分的需求了。
+
+Objcetive-C对象转换成二进制数据传到java端转换成java对象。
+
+##资料
+[MsgPack官网](http://msgpack.org) 包可以到这里下载
+
+[MsgPack 官网资料](https://github.com/msgpack/msgpack/blob/master/spec.md)
 
 #通讯UI控件
+
+
+
+
+
+
+
+
+
+
+
