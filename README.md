@@ -33,7 +33,7 @@ header只有两个字节，
 第一个字节的8个bit格式如下:
 
 bit数 | 4 bit | 1 bit | 2 bit | 1 bit
----- |
+---- | ---- | ---- | ---- | ---- |
 内容 | Message Type(4 bit) | DUP flag(1 bit) | QoS level(2 bit) | RETAIN
 
 第二个byte包含一个数据包的长度。1个字节可以表示256的长度。
@@ -42,7 +42,7 @@ bit数 | 4 bit | 1 bit | 2 bit | 1 bit
 4个bit可以表示16钟不同的类型。
 
 类型         | 枚举 | 描述
----         | - | --- 
+---         | --- | --- 
 Reserved    | 0 | Reserved(预留类型)
 CONNECT     | 1 | Client request to connect to Server(连接服务器所用)
 CONNACK     | 2 | 服务器确认包
