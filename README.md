@@ -104,6 +104,8 @@ QoS Value | bit1 | bit2 | Description
 
 
 ##example
+[JS Server](https://github.com/mqttjs/MQTT.js)
+[Swift CocoaMQTT](https://github.com/emqtt/CocoaMQTT)
 
 ## 参考资料
 [MQTT协议头部信息 聂勇的博客](http://www.blogjava.net/yongboy/archive/2014/02/15/409893.html)
